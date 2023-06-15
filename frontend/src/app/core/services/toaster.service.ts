@@ -8,7 +8,7 @@ export class ToasterService {
   public readonly TOAST_DELAY: number = 5000;
 
   public toasts: IToast[] = [];
-  
+
   public showSuccess(msg: string): void {
     this.show(msg, { classname: 'bg-success text-light', delay: 2000, header: 'Success' });
   }

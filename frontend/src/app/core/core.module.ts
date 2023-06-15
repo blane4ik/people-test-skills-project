@@ -2,15 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToastsComponent } from './components/toasts/toasts.component';
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 
 @NgModule({
   declarations: [
-    ToastsComponent
+    ToastsComponent,
+    ModalComponent
   ],
   exports: [
-    ToastsComponent
+    ToastsComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,

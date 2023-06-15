@@ -7,11 +7,13 @@ import { UsersComponent } from './components/users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddNewUserModalComponent } from './components/users/components/modals/add-new-user-modal/add-new-user-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UsersComponent,
+    AddNewUserModalComponent
   ],
   imports: [
     BrowserModule,

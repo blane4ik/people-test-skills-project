@@ -1,0 +1,25 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+.emg-modal {
+
+  & .modal-header {
+    background-color: $dark;
+    border-bottom: 1px solid $dark;
+  }
+
+  & .modal-footer {
+    padding: 0.3rem;
+    background-color: $white;
+  }
+
+  & .modal-title {
+    color: $white;
+    font-size: 1.3rem;
+  }
+
+  & .modal-body {
+    //max-height: calc(100vh - 200px);
+    overflow: auto;
+  }
+}
