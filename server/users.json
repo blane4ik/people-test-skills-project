@@ -1,0 +1,15 @@
+[
+  {
+    "firstName":  "Sergey",
+    "lastName": "Dyatlov",
+    "streetName": "Suvorova",
+    "houseName": "27",
+    "apartmentNumber": "15",
+    "postalCode": "230001",
+    "town": "Grodno",
+    "phoneNumber": "+375297826213",
+    "dateOfBirth": "01.03.1992",
+    "age": "31",
+    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
+  }
+]
