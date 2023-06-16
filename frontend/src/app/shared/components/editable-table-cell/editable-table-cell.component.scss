@@ -1,0 +1,12 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+.form-control {
+  border-radius: 0;
+  border: none;
+  border-bottom: 3px solid $primary;
+
+  &.is-invalid {
+    border-bottom: 3px solid $danger;
+  }
+}

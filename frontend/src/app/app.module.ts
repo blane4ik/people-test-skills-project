@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddNewUserModalComponent } from './components/users/components/modals/add-new-user-modal/add-new-user-modal.component';
+import { SharedModule } from './shared/shared.module';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,16 @@ import { AddNewUserModalComponent } from './components/users/components/modals/a
     UsersComponent,
     AddNewUserModalComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CoreModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CoreModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SharedModule,
+        NgbDropdownModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

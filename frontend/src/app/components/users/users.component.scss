@@ -1,0 +1,10 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+td:hover {
+  background-color: $gray-200;
+}
+
+tr {
+  line-height: 2rem;
+}

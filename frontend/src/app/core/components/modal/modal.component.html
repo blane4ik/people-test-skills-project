@@ -3,7 +3,7 @@
     <p class='modal-title'>{{ titleLabel }}</p>
     <span (click)="onClose()" class="btn btn-close text-white">X</span>
   </div>
-  <div class='modal-body'>
+  <div class='modal-body mb-3'>
     <ng-content></ng-content>
   </div>
   <div *ngIf='confirmText || cancelText' class='modal-footer'>

@@ -5,11 +5,10 @@ import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/modal/modal.component';
 
 
-
 @NgModule({
   declarations: [
     ToastsComponent,
-    ModalComponent
+    ModalComponent,
   ],
   exports: [
     ToastsComponent,

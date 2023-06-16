@@ -5,12 +5,48 @@
   cancelText="Cancel"
   confirmText="Add">
   <form [formGroup]="formGroup" *ngIf="formGroup">
-    <div class="d-flex flex-column">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
+    <div class="container d-flex flex-column">
+      <app-form-input
+        label="First name"
+        formControlName="firstName"
+      ></app-form-input>
+      <app-form-input
+        label="Last name"
+        formControlName="lastName"
+      ></app-form-input>
+      <app-form-input
+        label="Street name"
+        formControlName="streetName"
+      ></app-form-input>
+      <app-form-input
+        label="House number"
+        formControlName="houseNumber"
+      ></app-form-input>
+      <app-form-input
+        label="Apartment number"
+        [isRequired]="false"
+        formControlName="apartmentNumber"
+      ></app-form-input>
+      <app-form-input
+        label="Postal code"
+        formControlName="postalCode"
+      ></app-form-input>
+      <app-form-input
+        label="Town"
+        formControlName="town"
+      ></app-form-input>
+      <app-form-input
+        label="Phone number"
+        formControlName="phoneNumber"
+      ></app-form-input>
+      <app-form-input
+        label="Date of birth"
+        formControlName="dateOfBirth"
+      ></app-form-input>
+      <app-form-input
+        label="Age"
+        formControlName="age"
+      ></app-form-input>
     </div>
   </form>
 </app-modal>

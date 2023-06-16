@@ -17,3 +17,8 @@ html, body {
 .container {
   height: 100vh;
 }
+
+.no-info {
+  color: $secondary;
+  font-style: italic;
+}

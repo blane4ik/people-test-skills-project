@@ -1,0 +1,12 @@
+<div class="form-group my-2">
+  <label class="text-secondary mb-2">
+    {{ label }}
+    <span *ngIf="isRequired" class="text-danger">*</span>
+  </label>
+  <input type="text"
+         class="form-control"
+         [formControl]="control"
+         [class.is-invalid]="control?.invalid && control?.touched"
+         placeholder="Enter {{ label }}">
+  <small *ngIf="control?.invalid && control?.touched" class="form-text text-danger">This field is required</small>
+</div>
