@@ -4,7 +4,7 @@
     <span *ngIf="isRequired" class="text-danger">*</span>
   </label>
   <input type="text"
-         class="form-control shadow-none"
+         class="form-control shadow-none px-0"
          [formControl]="control"
          #inputElement
          (blur)="onBlur.emit()"

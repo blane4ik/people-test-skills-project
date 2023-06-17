@@ -15,8 +15,6 @@ export class BaseInputComponent implements ControlValueAccessor {
     return this.ngControl.control as FormControl;
   }
 
-  public value: any;
-
   constructor(@Self() public ngControl: NgControl) {
     this.ngControl.valueAccessor = this;
   }

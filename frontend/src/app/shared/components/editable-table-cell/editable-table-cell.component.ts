@@ -5,7 +5,7 @@ import { UsersService } from '../../../components/users/service/users.service';
 import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { FormDatepickerComponent } from '../form-datepicker/form-datepicker.component';
 
-export type CellType = 'simple' | 'phone' | 'date';
+export type CellType = 'simple' | 'date';
 
 @Component({
   selector: 'td[app-editable-table-cell]',
@@ -46,7 +46,6 @@ export class EditableTableCellComponent implements ControlValueAccessor {
 
     setTimeout(() => {
       if (canBeModified) {
-        console.log(this.input)
         this.input.inputElement.nativeElement.focus();
       }
     })
@@ -70,7 +69,6 @@ export class EditableTableCellComponent implements ControlValueAccessor {
     if (!this.isEditRowModeActivated) {
       this.setEdit(false)
     }
-    console.log(2323)
   }
 
   public getDateString(): string {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseInputComponent } from '../base-input/base-input.component';
 
 @Component({
@@ -7,5 +7,14 @@ import { BaseInputComponent } from '../base-input/base-input.component';
   styleUrls: ['./form-datepicker.component.scss']
 })
 export class FormDatepickerComponent extends BaseInputComponent {
+
+  public handleBlur(): void {
+    if (this.control.invalid) {
+      this.control.reset();
+    }
+
+    this.onBlur.emit()
+  }
+
 }
 

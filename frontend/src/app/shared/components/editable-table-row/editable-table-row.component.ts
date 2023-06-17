@@ -36,10 +36,6 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
         this.cancelEdit();
       }
     })
-
-    this.user.valueChanges.subscribe((e) => {
-      console.log(e)
-    })
   }
 
   public setEditMode(val: boolean): void {
