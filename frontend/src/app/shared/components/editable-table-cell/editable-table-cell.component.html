@@ -18,6 +18,7 @@
     <app-form-input
       #input
       class="w-75 d-flex"
+      [type]="type"
       (onBlur)="handleInputBlur()"
       [ignoreValidationErrors]="true"
       [formControl]="control"

@@ -1,6 +1,6 @@
 import { Component, HostListener, Input, Self, ViewChild } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
-import { FormInputComponent } from '../form-input/form-input.component';
+import { FormInputComponent, InputType } from '../form-input/form-input.component';
 import { UsersService } from '../../../components/users/service/users.service';
 import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { FormDatepickerComponent } from '../form-datepicker/form-datepicker.component';
@@ -19,6 +19,8 @@ export class EditableTableCellComponent implements ControlValueAccessor {
   public label!: string;
   @Input()
   public isRequired: boolean = true;
+  @Input()
+  public type: InputType = 'text';
 
   @Input()
   public set isEditRowMode(val: boolean) {
