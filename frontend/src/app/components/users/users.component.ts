@@ -11,8 +11,6 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: [ './users.component.scss' ]
 })
 export class UsersComponent implements OnInit {
-
-  public users: IUser[] | undefined;
   public formGroup: FormGroup = new FormGroup({
     users: new FormArray([])
   })
@@ -38,9 +36,6 @@ export class UsersComponent implements OnInit {
   private getUsers(): void {
     this.usersService.getUsers().subscribe((users: IUser[]) => {
       this.usersFormArray.controls = users.map((user: IUser) => this.getUserFormGroup(user));
-      this.usersFormArray.valueChanges.subscribe(e => {
-        console.log(e)
-      })
     })
   }
 

@@ -4,101 +4,22 @@
 <form [formGroup]="formGroup">
 <table class="table">
   <thead class="table-dark">
-  <tr>
-    <th class="col-1" scope="col">First name</th>
-    <th class="col-1" scope="col">Last name</th>
-    <th class="col-1" scope="col">Street name</th>
-    <th class="col-1" scope="col">House number</th>
-    <th class="col-1" scope="col">Apartment number</th>
-    <th class="col-1" scope="col">Postal code</th>
-    <th class="col-1" scope="col">Town</th>
-    <th class="col-1" scope="col">Phone number</th>
-    <th class="col-1" scope="col">Date of birth</th>
-    <th class="col-1" scope="col">Age</th>
-    <th class="col-1" scope="col"></th>
+  <tr class="">
+    <th scope="col">First name</th>
+    <th scope="col">Last name</th>
+    <th scope="col">Street name</th>
+    <th scope="col">House number</th>
+    <th scope="col">Apartment number</th>
+    <th scope="col">Postal code</th>
+    <th scope="col">Town</th>
+    <th scope="col">Phone number</th>
+    <th scope="col">Date of birth</th>
+    <th scope="col">Age</th>
+    <th scope="col" class="action-block"></th>
   </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of userFormGroups; let i = index" [formGroup]="user">
-<!--      <td class="table-hover">{{ user.controls["firstName"].value }}</td>-->
-<!--      <td>{{ user.lastName }}</td>-->
-      <td class="col-1">
-        <app-editable-table-cell
-          [value]="user.controls['firstName'].value"
-          formControlName="firstName"
-        ></app-editable-table-cell>
-      </td>
-      <td class="col-1">
-        <app-editable-table-cell
-          [value]="user.controls['lastName'].value"
-          formControlName="lastName"
-        ></app-editable-table-cell>
-      </td>
-      <td class="col-1">
-        <app-editable-table-cell
-          [value]="user.controls['streetName'].value"
-          formControlName="streetName"
-        ></app-editable-table-cell>
-      </td>
-      <td class="col-1">
-        <app-editable-table-cell
-          [value]="user.controls['houseNumber'].value"
-          formControlName="houseNumber"
-        ></app-editable-table-cell>
-      </td>
-      <td class="col-1">
-        <app-editable-table-cell
-          [value]="user.controls['apartmentNumber'].value"
-          [isRequired]="false"
-          formControlName="apartmentNumber"
-        ></app-editable-table-cell>
-      </td>
-      <td class="col-1">
-        <app-editable-table-cell
-          [value]="user.controls['postalCode'].value"
-          formControlName="postalCode"
-        ></app-editable-table-cell>
-      </td>
-      <td class="col-1">
-        <app-editable-table-cell
-          [value]="user.controls['town'].value"
-          formControlName="town"
-        ></app-editable-table-cell>
-      </td>
-      <td>
-        <app-editable-table-cell
-          [value]="user.controls['phoneNumber'].value"
-          formControlName="phoneNumber"
-        ></app-editable-table-cell>
-      </td>
-      <td>
-        <app-editable-table-cell
-          [value]="user.controls['dateOfBirth'].value"
-          formControlName="dateOfBirth"
-        ></app-editable-table-cell>
-      </td>
-      <td>
-        <app-editable-table-cell
-          [value]="user.controls['age'].value"
-          formControlName="age"
-        ></app-editable-table-cell>
-      </td>
-<!--      <td>{{ user.streetName }}</td>-->
-<!--      <td>{{ user.houseNumber }}</td>-->
-<!--      <td>{{ user.apartmentNumber }}</td>-->
-<!--      <td>{{ user.postalCode }}</td>-->
-<!--      <td>{{ user.town }}</td>-->
-<!--      <td>{{ user.phoneNumber }}</td>-->
-<!--      <td>{{ user.age }}</td>-->
-      <td>
-        <div class="d-inline-block" ngbDropdown>
-          <button class="dropdown-toggle" ngbDropdownToggle></button>
-          <div ngbDropdownMenu>
-            <button ngbDropdownItem>Edit</button>
-            <button ngbDropdownItem>Remove</button>
-          </div>
-        </div>
-      </td>
+    <tr class="gap-2" app-editable-table-row [user]="user" *ngFor="let user of userFormGroups">
     </tr>
 
   </tbody>

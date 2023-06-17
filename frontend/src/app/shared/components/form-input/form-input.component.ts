@@ -1,4 +1,4 @@
-import { Component, Input, Self } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, Self, ViewChild } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
 
 @Component({
@@ -11,6 +11,12 @@ export class FormInputComponent implements ControlValueAccessor {
   public label!: string;
   @Input()
   public isRequired: boolean = true;
+  @Input()
+  public ignoreValidationErrors: boolean = false;
+  @Output()
+  public onBlur: EventEmitter<void> = new EventEmitter<void>();
+  @ViewChild("inputElement")
+  public inputElement!: ElementRef;
 
   public get control(): FormControl {
     return this.ngControl.control as FormControl;
@@ -27,5 +33,9 @@ export class FormInputComponent implements ControlValueAccessor {
   registerOnTouched(fn: any) { }
 
   setDisabledState?(isDisabled: boolean) {
+  }
+
+  public getPlaceholder(): string {
+    return this.label ? `Enter ${this.label}` : '';
   }
 }

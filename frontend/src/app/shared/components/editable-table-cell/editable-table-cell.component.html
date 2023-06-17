@@ -1,12 +1,21 @@
-<div ngbTooltip="Press double click to edit" class="d-flex h-100" *ngIf="!isEdit">
-  <span *ngIf="value" [class.disabled]="">{{ value }}</span>
+<div
+  *ngIf="!isEdit || control.disabled"
+  ngbTooltip="Press double click to edit"
+  [disableTooltip]="control.disabled"
+  class="d-flex p-2"
+  [class.cursor-not-allowed]="control.disabled"
+>
+  <span *ngIf="value"
+        class="cell-value"
+        [class.disabled]="control.disabled">{{ value }}</span>
   <span *ngIf="!value" class="no-info">No info</span>
 </div>
-<input *ngIf="isEdit" type="text"
-       class="form-control shadow-none"
-       #input
-       [formControl]="control"
-       (blur)="isEdit = false"
-       [class.is-invalid]="control?.invalid"
-       placeholder="Enter {{ label }}">
+<app-form-input
+  #input
+  class="w-75 d-flex"
+  (onBlur)="handleInputBlur()"
+  [ignoreValidationErrors]="true"
+  *ngIf="isEdit && control.enabled"
+  [formControl]="control"
+></app-form-input>
 <small *ngIf="control?.invalid" class="form-text text-danger">This field is required</small>

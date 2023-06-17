@@ -1,30 +1,39 @@
-import { Component, ElementRef, HostListener, Input, Self, ViewChild } from '@angular/core';
-import { ControlValueAccessor, FormControl, FormGroup, NgControl } from '@angular/forms';
+import { Component, HostListener, Input, Self, ViewChild } from '@angular/core';
+import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
+import { FormInputComponent } from '../form-input/form-input.component';
 
 @Component({
-  selector: 'app-editable-table-cell',
+  selector: 'td[app-editable-table-cell]',
   templateUrl: './editable-table-cell.component.html',
-  styleUrls: ['./editable-table-cell.component.scss']
+  styleUrls: [ './editable-table-cell.component.scss' ]
 })
 export class EditableTableCellComponent implements ControlValueAccessor {
   @Input()
   public value?: string;
-
   @Input()
   public label!: string;
   @Input()
   public isRequired: boolean = true;
+  @Input()
+  public set isEditRowMode(val: boolean) {
+    this.isEditRowModeActivated = val;
+    this.setEdit(val);
+  }
 
   public isEdit: boolean = false;
+  public isEditRowModeActivated: boolean = false;
 
   @ViewChild('input')
-  public input!: ElementRef;
+  public input!: FormInputComponent;
 
   @HostListener('dblclick')
-  public toggleEdit(): void {
-    this.isEdit = true;
+  public enableEditMode(): void {
+    const canBeModified: boolean = this.control.enabled;
+    this.setEdit(canBeModified);
     setTimeout(() => {
-      this.input.nativeElement.focus();
+      if (canBeModified) {
+        this.input.inputElement.nativeElement.focus();
+      }
     })
   }
 
@@ -36,11 +45,24 @@ export class EditableTableCellComponent implements ControlValueAccessor {
     this.ngControl.valueAccessor = this;
   }
 
-  public writeValue(obj: any) {  }
+  public setEdit(val: boolean): void {
+    this.isEdit = val;
+  }
 
-  registerOnChange(fn: any) { }
+  public handleInputBlur(): void {
+    if (!this.isEditRowModeActivated) {
+      this.setEdit(false)
+    }
+  }
 
-  registerOnTouched(fn: any) { }
+  writeValue(obj: any) {
+  }
+
+  registerOnChange(fn: any) {
+  }
+
+  registerOnTouched(fn: any) {
+  }
 
   setDisabledState?(isDisabled: boolean) {
   }

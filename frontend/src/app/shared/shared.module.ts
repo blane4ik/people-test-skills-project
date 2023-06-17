@@ -3,24 +3,28 @@ import { CommonModule } from '@angular/common';
 import { FormInputComponent } from './components/form-input/form-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditableTableCellComponent } from './components/editable-table-cell/editable-table-cell.component';
-import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditableTableRowComponent } from './components/editable-table-row/editable-table-row.component';
 
 
 
 @NgModule({
   declarations: [
     FormInputComponent,
-    EditableTableCellComponent
+    EditableTableCellComponent,
+    EditableTableRowComponent
   ],
   exports: [
     FormInputComponent,
-    EditableTableCellComponent
+    EditableTableCellComponent,
+    EditableTableRowComponent
   ],
     imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        NgbTooltipModule
+        NgbTooltipModule,
+        NgbDropdownModule
     ]
 })
 export class SharedModule { }

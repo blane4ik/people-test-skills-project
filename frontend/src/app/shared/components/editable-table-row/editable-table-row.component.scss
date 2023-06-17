@@ -1,0 +1,16 @@
+td {
+  vertical-align: baseline;
+}
+
+.dropdown-toggler {
+  border: none;
+  background-color: inherit;
+
+  &::after {
+    display: none;
+  }
+}
+
+.action-block {
+  width: 2rem;
+}
