@@ -32,7 +32,13 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
     this.userService.cancelUserEdit$.pipe(
       takeUntil(this.isAlive$)
     ).subscribe(() => {
-      this.cancelEdit();
+      if (this.isEditRowMode) {
+        this.cancelEdit();
+      }
+    })
+
+    this.user.valueChanges.subscribe((e) => {
+      console.log(e)
     })
   }
 

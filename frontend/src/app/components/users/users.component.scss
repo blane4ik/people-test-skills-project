@@ -12,9 +12,9 @@ table {
     }
 
     th, td {
-      width: 9%;
+      width: 10%;
 
-      &:last-child {
+      &:nth-last-child(-n + 2) {
         width: 5%;
       }
     }

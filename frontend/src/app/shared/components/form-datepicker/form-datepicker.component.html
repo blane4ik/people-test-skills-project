@@ -1,0 +1,13 @@
+<div class="input-group">
+  <input
+    placeholder="yyyy-mm-dd"
+    name="dp"
+    ngbDatepicker
+    class="form-control shadow-none"
+    (blur)="onBlur.emit()"
+    [formControl]="control"
+    [class.is-invalid]="control?.invalid"
+    #inputElement="ngbDatepicker"
+  />
+  <button class="btn btn-outline-secondary mdi mdi-calendar" (click)="inputElement.toggle()" type="button"></button>
+</div>

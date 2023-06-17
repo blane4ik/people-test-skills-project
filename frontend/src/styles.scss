@@ -31,4 +31,15 @@ html, body {
   cursor: pointer;
 }
 
+.form-control {
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid $primary;
+
+  &.is-invalid {
+    border-bottom: 2px solid $danger;
+  }
+}
+
+
 

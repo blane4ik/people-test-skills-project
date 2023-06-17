@@ -8,7 +8,11 @@
     "postalCode": "230001",
     "town": "Grodno",
     "phoneNumber": "+375297826213",
-    "dateOfBirth": "01.03.1992",
+    "dateOfBirth": {
+      "day": 2,
+      "month": 11,
+      "year": 1992
+    },
     "age": "31",
     "id": "399ab07b-9661-4ed8-a827-c795485e6562"
   },
@@ -21,7 +25,11 @@
     "postalCode": "230001",
     "town": "Grodno",
     "phoneNumber": "+375297826213",
-    "dateOfBirth": "01.03.1992",
+    "dateOfBirth": {
+      "day": 2,
+      "month": 11,
+      "year": 1992
+    },
     "age": "31",
     "id": "399ab07b-9661-4ed8-a827-c795485e6562"
   },
@@ -34,7 +42,11 @@
     "postalCode": "230001",
     "town": "Grodno",
     "phoneNumber": "+375297826213",
-    "dateOfBirth": "01.03.1992",
+    "dateOfBirth": {
+      "day": 2,
+      "month": 11,
+      "year": 1992
+    },
     "age": "31",
     "id": "399ab07b-9661-4ed8-a827-c795485e6562"
   },
@@ -47,7 +59,11 @@
     "postalCode": "230001",
     "town": "Grodno",
     "phoneNumber": "+375297826213",
-    "dateOfBirth": "01.03.1992",
+    "dateOfBirth": {
+      "day": 2,
+      "month": 11,
+      "year": 1992
+    },
     "age": "31",
     "id": "399ab07b-9661-4ed8-a827-c795485e6562"
   },
@@ -60,7 +76,11 @@
     "postalCode": "230001",
     "town": "Grodno",
     "phoneNumber": "+375297826213",
-    "dateOfBirth": "01.03.1992",
+    "dateOfBirth": {
+      "day": 2,
+      "month": 11,
+      "year": 1992
+    },
     "age": "31",
     "id": "399ab07b-9661-4ed8-a827-c795485e6562"
   },
@@ -73,7 +93,11 @@
     "postalCode": "230001",
     "town": "Grodno",
     "phoneNumber": "+375297826213",
-    "dateOfBirth": "01.03.1992",
+    "dateOfBirth": {
+      "day": 2,
+      "month": 11,
+      "year": 1992
+    },
     "age": "31",
     "id": "399ab07b-9661-4ed8-a827-c795485e6562"
   },
@@ -86,7 +110,62 @@
     "postalCode": "230001",
     "town": "Grodno",
     "phoneNumber": "+375297826213",
-    "dateOfBirth": "01.03.1992",
+    "dateOfBirth": {
+      "day": 2,
+      "month": 11,
+      "year": 1992
+    },
+    "age": "31",
+    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
+  },
+  {
+    "firstName":  "Sergey",
+    "lastName": "Dyatlov",
+    "streetName": "Suvorova",
+    "houseNumber": "27",
+    "apartmentNumber": "",
+    "postalCode": "230001",
+    "town": "Grodno",
+    "phoneNumber": "+375297826213",
+    "dateOfBirth": {
+      "day": 2,
+      "month": 11,
+      "year": 1992
+    },
+    "age": "31",
+    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
+  },
+  {
+    "firstName":  "Sergey",
+    "lastName": "Dyatlov",
+    "streetName": "Suvorova",
+    "houseNumber": "27",
+    "apartmentNumber": "",
+    "postalCode": "230001",
+    "town": "Grodno",
+    "phoneNumber": "+375297826213",
+    "dateOfBirth": {
+      "day": 2,
+      "month": 11,
+      "year": 1992
+    },
+    "age": "31",
+    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
+  },
+  {
+    "firstName":  "Sergey",
+    "lastName": "Dyatlov",
+    "streetName": "Suvorova",
+    "houseNumber": "27",
+    "apartmentNumber": "",
+    "postalCode": "230001",
+    "town": "Grodno",
+    "phoneNumber": "+375297826213",
+    "dateOfBirth": {
+      "day": 2,
+      "month": 11,
+      "year": 1992
+    },
     "age": "31",
     "id": "399ab07b-9661-4ed8-a827-c795485e6562"
   }
