@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, Self, ViewChild } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output, Self, ViewChild } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
 import { FormInputComponent, InputType } from '../form-input/form-input.component';
 import { UsersService } from '../../../components/users/service/users.service';
@@ -33,9 +33,12 @@ export class EditableTableCellComponent implements ControlValueAccessor {
 
   @ViewChild('input')
   public input!: FormInputComponent | FormDatepickerComponent;
+  @Output()
+  public updateValue: EventEmitter<string> = new EventEmitter<string>();
 
   public isEdit: boolean = false;
   public isEditRowModeActivated: boolean = false;
+  private initialValue!: string;
 
 
   @HostListener('dblclick')
@@ -49,6 +52,7 @@ export class EditableTableCellComponent implements ControlValueAccessor {
     setTimeout(() => {
       if (canBeModified) {
         this.input.inputElement.nativeElement.focus();
+        this.initialValue = this.control.value;
       }
     })
   }
@@ -70,7 +74,13 @@ export class EditableTableCellComponent implements ControlValueAccessor {
   public handleInputBlur(): void {
     if (!this.isEditRowModeActivated) {
       this.setEdit(false);
-    //   ADD emit to save value if no errors
+
+      if (this.control.valid && this.initialValue !== this.control.value) {
+        this.updateValue.emit(this.control.value);
+        this.userService.triggerUserModified(true);
+      } else {
+        this.control.setValue(this.initialValue);
+      }
     }
   }
 

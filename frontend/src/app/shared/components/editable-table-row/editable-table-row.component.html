@@ -2,49 +2,58 @@
   <td app-editable-table-cell
       [value]="user.controls['firstName'].value"
       formControlName="firstName"
+      (updateValue)="updateCellValue($event, 'firstName')"
       [isEditRowMode]="isEditRowMode"
       ></td>
   <td app-editable-table-cell
       [value]="user.controls['lastName'].value"
       formControlName="lastName"
+      (updateValue)="updateCellValue($event, 'lastName')"
       [isEditRowMode]="isEditRowMode"
       ></td>
   <td app-editable-table-cell
       [value]="user.controls['streetName'].value"
       formControlName="streetName"
+      (updateValue)="updateCellValue($event, 'streetName')"
       [isEditRowMode]="isEditRowMode"
       ></td>
   <td app-editable-table-cell
       [value]="user.controls['houseNumber'].value"
       formControlName="houseNumber"
+      (updateValue)="updateCellValue($event, 'houseNumber')"
       [isEditRowMode]="isEditRowMode"
       ></td>
   <td app-editable-table-cell
       [value]="user.controls['apartmentNumber'].value"
       [isRequired]="false"
+      (updateValue)="updateCellValue($event, 'apartmentNumber')"
       formControlName="apartmentNumber"
       [isEditRowMode]="isEditRowMode"
       ></td>
   <td app-editable-table-cell
       [value]="user.controls['postalCode'].value"
       formControlName="postalCode"
+      (updateValue)="updateCellValue($event, 'postalCode')"
       type="number"
       [isEditRowMode]="isEditRowMode"
       ></td>
   <td app-editable-table-cell
       [value]="user.controls['town'].value"
       formControlName="town"
+      (updateValue)="updateCellValue($event, 'town')"
       [isEditRowMode]="isEditRowMode"
       ></td>
   <td app-editable-table-cell
       [value]="user.controls['phoneNumber'].value"
       formControlName="phoneNumber"
+      (updateValue)="updateCellValue($event, 'phoneNumber')"
       type="number"
       [isEditRowMode]="isEditRowMode"
       ></td>
   <td app-editable-table-cell
       [value]="user.controls['dateOfBirth'].value"
       cellType="date"
+      (updateValue)="updateCellValue($event, 'dateOfBirth')"
       formControlName="dateOfBirth"
       [isEditRowMode]="isEditRowMode"
       ></td>

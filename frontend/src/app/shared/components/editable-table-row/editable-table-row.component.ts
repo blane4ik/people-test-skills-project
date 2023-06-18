@@ -44,6 +44,10 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
   //   })
   // }
 
+  public updateCellValue(value: string, controlName: string): void {
+    this.userGroupInitialValue[controlName] = value;
+  }
+
   private handleCancelUserEdit(): void {
     this.userService.cancelUserEdit$.pipe(
       takeUntil(this.isAlive$)
