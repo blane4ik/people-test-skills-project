@@ -69,7 +69,7 @@ export class EditableTableCellComponent implements ControlValueAccessor {
 
   public handleInputBlur(): void {
     if (!this.isEditRowModeActivated) {
-      this.setEdit(false)
+      this.setEdit(false);
     }
   }
 

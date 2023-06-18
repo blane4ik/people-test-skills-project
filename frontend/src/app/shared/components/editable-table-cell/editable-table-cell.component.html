@@ -27,10 +27,14 @@
   <ng-template #dateControl>
     <app-form-datepicker
       #input
+      class="w-75 d-flex"
       (onBlur)="handleInputBlur()"
       [formControl]="control"
     ></app-form-datepicker>
   </ng-template>
 </ng-container>
-<small *ngIf="control?.invalid" class="form-text text-danger">This field is required</small>
+<div *ngIf="control?.invalid" class="d-flex flex-column">
+  <small *ngIf="control.errors?.['required']" class="form-text text-danger mb-2">This field is required</small>
+  <small *ngIf="control.errors?.['ngbDate']" class="form-text text-danger mb-2">Wrong date</small>
+</div>
 

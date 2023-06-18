@@ -29,6 +29,19 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
   constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
+    this.handleCancelUserEdit();
+    this.handleSingleCellEdit();
+  }
+
+  private handleSingleCellEdit(): void {
+    this.user.valueChanges.subscribe((value) => {
+      if (!this.isEditRowMode) {
+        this.userGroupInitialValue = value;
+      }
+    })
+  }
+
+  private handleCancelUserEdit(): void {
     this.userService.cancelUserEdit$.pipe(
       takeUntil(this.isAlive$)
     ).subscribe(() => {
