@@ -26,7 +26,7 @@
 </table>
 
 <div class="d-flex align-items-center justify-content-end mt-2">
-  <button class="btn btn-success me-2">Save</button>
-  <button class="btn btn-outline-secondary" (click)="formGroup.reset()">Cancel</button>
+  <button class="btn btn-success me-2" [disabled]="!(usersService.isModified$ | async)">Save</button>
+  <button class="btn btn-outline-secondary" [disabled]="!(usersService.isModified$ | async)" (click)="cancelChanges()">Cancel</button>
 </div>
 </form>

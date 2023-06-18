@@ -1,3 +1,6 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
 td {
   vertical-align: baseline;
 }
@@ -13,4 +16,12 @@ td {
 
 .action-block {
   width: 2rem;
+}
+
+.mdi {
+  font-size: 1.3rem;
+
+  &.disabled {
+    color: $gray-300 !important;
+  }
 }

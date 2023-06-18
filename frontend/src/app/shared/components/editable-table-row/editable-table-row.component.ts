@@ -30,16 +30,19 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.handleCancelUserEdit();
-    this.handleSingleCellEdit();
+    // this.handleSingleCellEdit();
   }
 
-  private handleSingleCellEdit(): void {
-    this.user.valueChanges.subscribe((value) => {
-      if (!this.isEditRowMode) {
-        this.userGroupInitialValue = value;
-      }
-    })
-  }
+  // TODO: move handling to table cell
+  // private handleSingleCellEdit(): void {
+  //   this.user.valueChanges.subscribe((value) => {
+  //     if (!this.isEditRowMode) {
+  //       console.log(this.user.valid)
+  //       this.userGroupInitialValue = value;
+  //       this.userService.triggerUserModified(true);
+  //     }
+  //   })
+  // }
 
   private handleCancelUserEdit(): void {
     this.userService.cancelUserEdit$.pipe(
@@ -61,12 +64,15 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
   }
 
   public removeUser(): void {
-    this.user.patchValue(this.userGroupInitialValue);
+
   }
 
   public applyChanges(): void {
-    this.userGroupInitialValue = this.user.value;
-    this.setEditMode(false);
+    if (this.user.valid) {
+      this.userGroupInitialValue = this.user.value;
+      this.setEditMode(false);
+      this.userService.triggerUserModified(true);
+    }
   }
 
   public cancelEdit(): void {

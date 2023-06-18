@@ -3,7 +3,9 @@ import { IUser } from './interface/user.interface';
 import { UsersService } from './service/users.service';
 import { ToasterService } from '../../core/services/toaster.service';
 import { ModalService } from '../../core/services/modal.service';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormGroup } from '@angular/forms';
+import { UserUtils } from './utils/user-utils';
+import { ModalCloseReason } from '../../core/components/modal/enum/modal-close-reason.enum';
 
 @Component({
   selector: 'app-users',
@@ -23,7 +25,9 @@ export class UsersComponent implements OnInit {
     return this.usersFormArray.controls as FormGroup[];
   }
 
-  constructor(private usersService: UsersService,
+  private initialUsersValue: IUser[] = [];
+
+  constructor(public usersService: UsersService,
               private toasterService: ToasterService,
               private modalService: ModalService) {
   }
@@ -35,27 +39,22 @@ export class UsersComponent implements OnInit {
 
   private getUsers(): void {
     this.usersService.getUsers().subscribe((users: IUser[]) => {
-      this.usersFormArray.controls = users.map((user: IUser) => this.getUserFormGroup(user));
+      this.initialUsersValue = users;
+      this.updateFormArrayControls(users);
     })
   }
 
-  private getUserFormGroup(user: IUser): FormGroup {
-    return new FormGroup({
-      firstName: new FormControl(user.firstName, [ Validators.required ]),
-      lastName: new FormControl(user.lastName, [ Validators.required ]),
-      streetName: new FormControl(user.streetName, [ Validators.required ]),
-      houseNumber: new FormControl(user.houseNumber, [ Validators.required ]),
-      apartmentNumber: new FormControl(user.apartmentNumber),
-      postalCode: new FormControl(user.postalCode, [ Validators.required ]),
-      town: new FormControl(user.town, [ Validators.required ]),
-      phoneNumber: new FormControl(user.phoneNumber, [ Validators.required ]),
-      dateOfBirth: new FormControl(user.dateOfBirth, [ Validators.required ]),
-      age: new FormControl({ value: user.age, disabled: true }, [ Validators.required ]),
-    })
+  private updateFormArrayControls(users: IUser[]): void {
+    this.usersFormArray.controls = UserUtils.getFormArrayControlsFromUsers(users);
+  }
+
+  public cancelChanges(): void {
+    this.updateFormArrayControls(this.initialUsersValue);
+    this.usersService.triggerUserModified(false);
   }
 
   public openAddNewUserModal(): void {
-    this.modalService.openAddNewUserModal().subscribe(() => {
+    this.modalService.openAddNewUserModal().subscribe((reason: ModalCloseReason) => {
 
     })
   }

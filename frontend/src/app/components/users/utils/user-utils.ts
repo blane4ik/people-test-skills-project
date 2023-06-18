@@ -2,6 +2,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IUser } from '../interface/user.interface';
 
 export class UserUtils {
+
+  public static getFormArrayControlsFromUsers(users: IUser[]): FormGroup[] {
+    return users.map((user: IUser) => this.getUserFormGroup(user));
+  }
   public static getUserFormGroup(user?: IUser): FormGroup {
     return new FormGroup({
       firstName: new FormControl(user?.firstName, [Validators.required]),

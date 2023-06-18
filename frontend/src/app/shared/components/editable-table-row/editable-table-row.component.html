@@ -63,7 +63,7 @@
     </div>
 
     <div *ngIf="isEditRowMode" class="d-flex justify-content-evenly">
-      <i class="mdi mdi-check text-success" (click)="applyChanges()"></i>
+      <i class="mdi mdi-check text-success" [class.disabled]="user.invalid" (click)="applyChanges()"></i>
       <i class="mdi mdi-cancel text-danger" (click)="cancelEdit()"></i>
     </div>
   </td>
