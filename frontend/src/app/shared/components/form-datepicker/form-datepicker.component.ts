@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BaseInputComponent } from '../base-input/base-input.component';
 
 @Component({
@@ -7,9 +7,11 @@ import { BaseInputComponent } from '../base-input/base-input.component';
   styleUrls: ['./form-datepicker.component.scss']
 })
 export class FormDatepickerComponent extends BaseInputComponent {
+  @Input()
+  public isInlineEdit: boolean = false;
 
   public handleBlur(): void {
-    if (this.control.invalid) {
+    if (this.control.invalid && this.isInlineEdit) {
       this.control.reset();
     }
 

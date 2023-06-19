@@ -7,6 +7,7 @@ import { NgbDatepickerModule, NgbDropdownModule, NgbTooltipModule } from '@ng-bo
 import { EditableTableRowComponent } from './components/editable-table-row/editable-table-row.component';
 import { FormDatepickerComponent } from './components/form-datepicker/form-datepicker.component';
 import { BaseInputComponent } from './components/base-input/base-input.component';
+import { BaseCustomControlComponent } from './components/base-custom-control/base-custom-control.component';
 
 
 @NgModule({
@@ -16,12 +17,14 @@ import { BaseInputComponent } from './components/base-input/base-input.component
     EditableTableRowComponent,
     FormDatepickerComponent,
     BaseInputComponent,
+    BaseCustomControlComponent,
   ],
-  exports: [
-    FormInputComponent,
-    EditableTableCellComponent,
-    EditableTableRowComponent
-  ],
+    exports: [
+        FormInputComponent,
+        EditableTableCellComponent,
+        EditableTableRowComponent,
+        FormDatepickerComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,

@@ -10,12 +10,6 @@ export type InputType = 'text' | 'number';
 })
 export class FormInputComponent extends BaseInputComponent {
   @Input()
-  public label!: string;
-  @Input()
-  public isRequired: boolean = true;
-  @Input()
-  public ignoreValidationErrors: boolean = false;
-  @Input()
   type: InputType = 'text';
 
   @HostListener('input', ['$event'])
@@ -32,6 +26,6 @@ export class FormInputComponent extends BaseInputComponent {
   }
 
   public getPlaceholder(): string {
-    return this.label ? `Enter ${this.label}` : '';
+    return this.label ? `Enter ${this.label.toLowerCase()}` : '';
   }
 }

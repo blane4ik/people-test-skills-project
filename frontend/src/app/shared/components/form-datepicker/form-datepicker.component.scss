@@ -1,0 +1,9 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+.input-group {
+  .btn {
+    border-left: 1px solid $primary !important;
+    z-index: 11;
+  }
+}

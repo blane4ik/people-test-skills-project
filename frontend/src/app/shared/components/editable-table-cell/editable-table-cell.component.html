@@ -17,7 +17,6 @@
   <ng-container *ngIf="cellType === 'simple'; else dateControl">
     <app-form-input
       #input
-      class="w-75 d-flex"
       [type]="type"
       (onBlur)="handleInputBlur()"
       [ignoreValidationErrors]="true"
@@ -27,7 +26,8 @@
   <ng-template #dateControl>
     <app-form-datepicker
       #input
-      class="w-75 d-flex"
+      [isInlineEdit]="!isEditRowModeActivated"
+      [ignoreValidationErrors]="true"
       (onBlur)="handleInputBlur()"
       [formControl]="control"
     ></app-form-datepicker>

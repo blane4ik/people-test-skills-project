@@ -1,35 +1,19 @@
-import { Component, ElementRef, EventEmitter, Output, Self, ViewChild } from '@angular/core';
-import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { BaseCustomControlComponent } from '../base-custom-control/base-custom-control.component';
 
 @Component({
   selector: 'app-base-input',
   template: ''
 })
-export class BaseInputComponent implements ControlValueAccessor {
+export class BaseInputComponent extends BaseCustomControlComponent {
+  @Input()
+  public label?: string;
+  @Input()
+  public isRequired: boolean = true;
+  @Input()
+  public ignoreValidationErrors: boolean = false;
   @Output()
   public onBlur: EventEmitter<void> = new EventEmitter<void>();
   @ViewChild("inputElement", { read: ElementRef })
   public inputElement!: ElementRef;
-
-  public get control(): FormControl {
-    return this.ngControl.control as FormControl;
-  }
-
-  constructor(@Self() public ngControl: NgControl) {
-    this.ngControl.valueAccessor = this;
-  }
-
-
-  writeValue(obj: any) {  }
-
-  registerOnChange(fn: any) {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: any) { }
-
-  setDisabledState?(isDisabled: boolean) {
-  }
-
-  onChange: (value: any) => void = () => {};
 }
