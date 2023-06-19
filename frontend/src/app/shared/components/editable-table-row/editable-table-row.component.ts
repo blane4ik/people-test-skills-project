@@ -1,12 +1,14 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { UsersService } from '../../../components/users/service/users.service';
 import { Subject, takeUntil } from 'rxjs';
+import { ModalService } from '../../../core/services/modal.service';
+import { ModalCloseReason } from '../../../core/components/modal/enum/modal-close-reason.enum';
 
 @Component({
   selector: 'tr[app-editable-table-row]',
   templateUrl: './editable-table-row.component.html',
-  styleUrls: ['./editable-table-row.component.scss']
+  styleUrls: [ './editable-table-row.component.scss' ]
 })
 export class EditableTableRowComponent implements OnInit, OnDestroy {
 
@@ -20,19 +22,25 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
     return this._useGroup;
   }
 
+  @Output()
+  public removeUser: EventEmitter<string> = new EventEmitter<string>();
+
   public isEditRowMode: boolean = false;
 
   private _useGroup!: FormGroup;
   private userGroupInitialValue!: any;
-
   private isAlive$: Subject<void> = new Subject<void>();
-  constructor(private userService: UsersService) { }
+
+  constructor(private userService: UsersService,
+              private modalService: ModalService) {
+  }
 
   ngOnInit(): void {
     this.handleCancelUserEdit();
   }
 
   public updateCellValue(value: string, controlName: string): void {
+    this.userService.updatedUsers.add(this.user);
     this.userGroupInitialValue[controlName] = value;
   }
 
@@ -55,14 +63,19 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
     this.setEditMode(true);
   }
 
-  public removeUser(): void {
-
+  public removeUserHandler(id: string): void {
+    this.modalService.openRemoveUserConfirmationModal().subscribe((reason: ModalCloseReason) => {
+      if (reason === ModalCloseReason.OK) {
+        this.removeUser.emit(id);
+      }
+    })
   }
 
   public applyChanges(): void {
     if (this.user.valid) {
       this.userGroupInitialValue = this.user.value;
       this.setEditMode(false);
+      this.userService.updatedUsers.add(this.user);
       this.userService.triggerUserModified(true);
     }
   }

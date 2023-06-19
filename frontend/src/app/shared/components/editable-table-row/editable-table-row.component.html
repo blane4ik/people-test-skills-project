@@ -66,8 +66,8 @@
     <div *ngIf="!isEditRowMode" class="d-flex justify-content-center" ngbDropdown>
         <i class="mdi mdi-dots-vertical dropdown-toggler cursor-pointer" ngbDropdownToggle></i>
       <div ngbDropdownMenu>
-        <button ngbDropdownItem (click)="enterEditMode()">Edit</button>
-        <button ngbDropdownItem (click)="removeUser()">Remove</button>
+        <button ngbDropdownItem type="button" (click)="enterEditMode()">Edit</button>
+        <button ngbDropdownItem type="button" (click)="removeUserHandler(user.controls['id'].value)">Remove</button>
       </div>
     </div>
 

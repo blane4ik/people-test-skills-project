@@ -1,6 +1,7 @@
 [
   {
-    "firstName":  "Sergey",
+    "id": "399ab07b-9661-4ed8-a827-c795485e6562",
+    "firstName": "Sergey",
     "lastName": "Dyatlov",
     "streetName": "Suvorova",
     "houseNumber": "27",
@@ -13,160 +14,23 @@
       "month": 11,
       "year": 1992
     },
-    "age": "31",
-    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
+    "age": "31"
   },
   {
-    "firstName":  "Sergey",
-    "lastName": "Dyatlov",
-    "streetName": "Suvorova",
-    "houseNumber": "27",
-    "apartmentNumber": "",
-    "postalCode": "230001",
-    "town": "Grodno",
-    "phoneNumber": "+375297826213",
+    "firstName": "test",
+    "lastName": "test",
+    "streetName": "test",
+    "houseNumber": "test",
+    "apartmentNumber": "test",
+    "postalCode": "123123123",
+    "town": "test",
+    "phoneNumber": "34234234234",
     "dateOfBirth": {
-      "day": 2,
-      "month": 11,
-      "year": 1992
+      "year": 2023,
+      "month": 6,
+      "day": 15
     },
-    "age": "31",
-    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
-  },
-  {
-    "firstName":  "Sergey",
-    "lastName": "Dyatlov",
-    "streetName": "Suvorova",
-    "houseNumber": "27",
-    "apartmentNumber": "",
-    "postalCode": "230001",
-    "town": "Grodno",
-    "phoneNumber": "+375297826213",
-    "dateOfBirth": {
-      "day": 2,
-      "month": 11,
-      "year": 1992
-    },
-    "age": "31",
-    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
-  },
-  {
-    "firstName":  "Sergey",
-    "lastName": "Dyatlov",
-    "streetName": "Suvorova",
-    "houseNumber": "27",
-    "apartmentNumber": "",
-    "postalCode": "230001",
-    "town": "Grodno",
-    "phoneNumber": "+375297826213",
-    "dateOfBirth": {
-      "day": 2,
-      "month": 11,
-      "year": 1992
-    },
-    "age": "31",
-    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
-  },
-  {
-    "firstName":  "Sergey",
-    "lastName": "Dyatlov",
-    "streetName": "Suvorova",
-    "houseNumber": "27",
-    "apartmentNumber": "",
-    "postalCode": "230001",
-    "town": "Grodno",
-    "phoneNumber": "+375297826213",
-    "dateOfBirth": {
-      "day": 2,
-      "month": 11,
-      "year": 1992
-    },
-    "age": "31",
-    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
-  },
-  {
-    "firstName":  "Sergey",
-    "lastName": "Dyatlov",
-    "streetName": "Suvorova",
-    "houseNumber": "27",
-    "apartmentNumber": "",
-    "postalCode": "230001",
-    "town": "Grodno",
-    "phoneNumber": "+375297826213",
-    "dateOfBirth": {
-      "day": 2,
-      "month": 11,
-      "year": 1992
-    },
-    "age": "31",
-    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
-  },
-  {
-    "firstName":  "Sergey",
-    "lastName": "Dyatlov",
-    "streetName": "Suvorova",
-    "houseNumber": "27",
-    "apartmentNumber": "",
-    "postalCode": "230001",
-    "town": "Grodno",
-    "phoneNumber": "+375297826213",
-    "dateOfBirth": {
-      "day": 2,
-      "month": 11,
-      "year": 1992
-    },
-    "age": "31",
-    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
-  },
-  {
-    "firstName":  "Sergey",
-    "lastName": "Dyatlov",
-    "streetName": "Suvorova",
-    "houseNumber": "27",
-    "apartmentNumber": "",
-    "postalCode": "230001",
-    "town": "Grodno",
-    "phoneNumber": "+375297826213",
-    "dateOfBirth": {
-      "day": 2,
-      "month": 11,
-      "year": 1992
-    },
-    "age": "31",
-    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
-  },
-  {
-    "firstName":  "Sergey",
-    "lastName": "Dyatlov",
-    "streetName": "Suvorova",
-    "houseNumber": "27",
-    "apartmentNumber": "",
-    "postalCode": "230001",
-    "town": "Grodno",
-    "phoneNumber": "+375297826213",
-    "dateOfBirth": {
-      "day": 2,
-      "month": 11,
-      "year": 1992
-    },
-    "age": "31",
-    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
-  },
-  {
-    "firstName":  "Sergey",
-    "lastName": "Dyatlov",
-    "streetName": "Suvorova",
-    "houseNumber": "27",
-    "apartmentNumber": "",
-    "postalCode": "230001",
-    "town": "Grodno",
-    "phoneNumber": "+375297826213",
-    "dateOfBirth": {
-      "day": 2,
-      "month": 11,
-      "year": 1992
-    },
-    "age": "31",
-    "id": "399ab07b-9661-4ed8-a827-c795485e6562"
+    "age": "43",
+    "id": "8ab77f8f-aab3-400b-8d7e-4a96b4955c06"
   }
 ]

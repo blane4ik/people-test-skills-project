@@ -38,9 +38,12 @@ export class UsersComponent implements OnInit {
 
 
   private getUsers(): void {
-    this.usersService.getUsers().subscribe((users: IUser[]) => {
-      this.initialUsersValue = users;
-      this.updateFormArrayControls(users);
+    this.usersService.getUsers().subscribe({
+      next: (users: IUser[]) => {
+        this.initialUsersValue = users;
+        this.updateFormArrayControls(users);
+      },
+      error: () => this.toasterService.showDanger('Something went wrong...')
     })
   }
 
@@ -48,14 +51,45 @@ export class UsersComponent implements OnInit {
     this.usersFormArray.controls = UserUtils.getFormArrayControlsFromUsers(users);
   }
 
+  public removeUser(id: string) {
+    this.usersService.removeUser(id).subscribe({
+      next: () => {
+        this.toasterService.showSuccess('User successfully removed');
+        this.getUsers();
+      },
+      error: () => this.toasterService.showSuccess('Something went wrong...')
+    })
+  }
+
   public cancelChanges(): void {
-    this.updateFormArrayControls(this.initialUsersValue);
-    this.usersService.triggerUserModified(false);
+    this.modalService.openUnsavedDataModal(UserUtils.USER_UPDATE_CANCEL_TEXT).subscribe((reason: ModalCloseReason) => {
+      if (reason === ModalCloseReason.OK) {
+        this.updateFormArrayControls(this.initialUsersValue);
+        this.usersService.triggerUserModified(false);
+      }
+    })
   }
 
   public openAddNewUserModal(): void {
     this.modalService.openAddNewUserModal().subscribe((reason: ModalCloseReason) => {
+      if (reason === ModalCloseReason.OK) {
+        this.getUsers();
+      }
+    })
+  }
 
+  public save(): void {
+    this.usersService.triggerCancelUserEdit();
+    const updatedUsers: IUser[] = Array.from(this.usersService.updatedUsers.values()).map((group: FormGroup) => group.getRawValue());
+
+    this.usersService.saveUpdatedUsers(updatedUsers).subscribe({
+      next: () => {
+        this.toasterService.showSuccess('Successfully saved');
+        this.usersService.updatedUsers.clear();
+        this.usersService.triggerUserModified(false);
+        this.getUsers();
+      },
+      error: () => this.toasterService.showSuccess('Something went wrong...')
     })
   }
 }

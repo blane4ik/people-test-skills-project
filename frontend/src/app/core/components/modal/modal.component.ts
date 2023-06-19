@@ -17,6 +17,8 @@ export class ModalComponent {
   public confirmButtonEnabled: boolean = true;
   @Input()
   public cancelText!: string;
+  @Input()
+  public modified: boolean = false;
   @Output()
   public cancel: EventEmitter<void> = new EventEmitter<void>();
   @Output()
@@ -30,11 +32,11 @@ export class ModalComponent {
   }
 
   onClose(): void {
-    this.closeModal(ModalCloseReason.CLOSE);
+    this.closeModalHandler(ModalCloseReason.CLOSE);
   }
 
   onCancel() {
-    this.closeModal(ModalCloseReason.CANCEL);
+    this.closeModalHandler(ModalCloseReason.CANCEL);
   }
 
   onConfirm() {
@@ -42,16 +44,15 @@ export class ModalComponent {
   }
 
   private closeModalHandler(modalCloseReason: ModalCloseReason): void {
-    // if (this.modified) {
-    //   this.modalService.openUnsavedDataModal(true).subscribe(({ reason }) => {
-    //     if (reason === ModalCloseReason.OK) {
-    //       this.closeModal(modalCloseReason);
-    //     }
-    //   })
-    // } else {
-    //   !this.noNeedForActionCanceled && this.toasterService.showInfo('systemNotifications.info.actionCanceled');
-    //   this.closeModal(modalCloseReason);
-    // }
+    if (this.modified) {
+      this.modalService.openUnsavedDataModal().subscribe((reason: ModalCloseReason) => {
+        if (reason === ModalCloseReason.OK) {
+          this.closeModal(modalCloseReason);
+        }
+      })
+    } else {
+      this.closeModal(modalCloseReason);
+    }
   }
 
   private closeModal(modalCloseReason: ModalCloseReason): void {

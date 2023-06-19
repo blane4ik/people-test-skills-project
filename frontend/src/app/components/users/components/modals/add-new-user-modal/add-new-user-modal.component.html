@@ -2,6 +2,7 @@
   titleLabel="Add new user"
   (confirm)="save()"
   [confirmButtonEnabled]="formGroup.valid"
+  [modified]="formGroup.dirty"
   cancelText="Cancel"
   confirmText="Add">
   <form [formGroup]="formGroup" *ngIf="formGroup">
