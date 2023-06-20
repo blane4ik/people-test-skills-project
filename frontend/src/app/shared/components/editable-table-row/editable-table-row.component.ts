@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { UsersService } from '../../../components/users/service/users.service';
 import { Subject, takeUntil } from 'rxjs';
@@ -24,11 +24,6 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
 
   @Output()
   public removeUser: EventEmitter<string> = new EventEmitter<string>();
-
-  @HostListener('keydown.enter')
-  public keydownEnterHandler(): void {
-    this.applyChanges();
-  }
 
   public isEditRowMode: boolean = false;
 
@@ -82,11 +77,18 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
 
   public applyChanges(): void {
     if (this.user.valid) {
-      this.userGroupInitialValue = this.user.value;
       this.setEditMode(false);
-      this.addUserToMap();
-      this.userService.triggerUserModified(true);
+
+      if (this.isUserUpdated()) {
+        this.userGroupInitialValue = this.user.value;
+        this.addUserToMap();
+        this.userService.triggerUserModified(true);
+      }
     }
+  }
+
+  private isUserUpdated(): boolean {
+    return JSON.stringify(this.user.value) !== JSON.stringify(this.userGroupInitialValue);
   }
 
   public cancelEdit(): void {

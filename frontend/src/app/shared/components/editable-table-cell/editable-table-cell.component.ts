@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, HostBinding, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { FormInputComponent, InputType } from '../form-input/form-input.component';
 import { UsersService } from '../../../components/users/service/users.service';
@@ -61,9 +61,24 @@ export class EditableTableCellComponent extends BaseCustomControlComponent {
     this.applyChanges();
   }
 
+  @HostListener('keydown.escape')
+  public escKeydownHandler(): void {
+    if (!this.isEditRowModeActivated) {
+      this.control.setValue(this.initialValue);
+      this.setEdit(false);
+      this.cdr.detectChanges();
+    }
+  }
+
+  @HostBinding('class.active')
+  get getIsCellActive() {
+    return this.isEdit;
+  }
+
   constructor(ngControl: NgControl,
               private userService: UsersService,
-              private parserFormatter: NgbDateParserFormatter) {
+              private parserFormatter: NgbDateParserFormatter,
+              private cdr: ChangeDetectorRef) {
     super(ngControl);
   }
 
@@ -81,6 +96,8 @@ export class EditableTableCellComponent extends BaseCustomControlComponent {
       } else {
         this.control.setValue(this.initialValue);
       }
+
+      this.cdr.detectChanges();
     }
   }
 
