@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { UsersService } from '../../../components/users/service/users.service';
 import { Subject, takeUntil } from 'rxjs';
@@ -24,6 +24,11 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
 
   @Output()
   public removeUser: EventEmitter<string> = new EventEmitter<string>();
+
+  @HostListener('keydown.enter')
+  public keydownEnterHandler(): void {
+    this.applyChanges();
+  }
 
   public isEditRowMode: boolean = false;
 
