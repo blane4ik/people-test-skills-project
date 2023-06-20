@@ -1,0 +1,40 @@
+<div
+  *ngIf="!isEdit || control.disabled"
+  ngbTooltip="Press double click to edit"
+  [disableTooltip]="control.disabled"
+  class="d-flex"
+  [class.cursor-not-allowed]="control.disabled"
+>
+  <div *ngIf="value"
+        class="cell-value"
+        [class.disabled]="control.disabled">
+    <span *ngIf="cellType !== 'date'">{{ value }}</span>
+    <span *ngIf="cellType === 'date'">{{ getDateString() }}</span>
+  </div>
+  <span *ngIf="!value" class="no-info">No info</span>
+</div>
+<ng-container *ngIf="isEdit && control.enabled">
+  <ng-container *ngIf="cellType === 'simple'; else dateControl">
+    <app-form-input
+      #input
+      [type]="type"
+      (onBlur)="handleInputBlur()"
+      [ignoreValidationErrors]="true"
+      [formControl]="control"
+    ></app-form-input>
+  </ng-container>
+  <ng-template #dateControl>
+    <app-form-datepicker
+      #input
+      [isInlineEdit]="!isEditRowModeActivated"
+      [ignoreValidationErrors]="true"
+      (onBlur)="handleInputBlur()"
+      [formControl]="control"
+    ></app-form-datepicker>
+  </ng-template>
+</ng-container>
+<div *ngIf="control?.invalid" class="d-flex flex-column">
+  <small *ngIf="control.errors?.['required']" class="form-text text-danger mb-2">This field is required</small>
+  <small *ngIf="control.errors?.['ngbDate']" class="form-text text-danger mb-2">Wrong date</small>
+</div>
+

@@ -1,0 +1,14 @@
+<div class="form-group">
+  <label *ngIf="label" class="text-secondary mb-2">
+    {{ label }}
+    <span *ngIf="isRequired" class="text-danger">*</span>
+  </label>
+  <input type="text"
+         class="form-control shadow-none px-0"
+         [formControl]="control"
+         #inputElement
+         (blur)="onBlur.emit()"
+         [class.is-invalid]="control?.invalid && control?.touched"
+         [placeholder]="getPlaceholder()">
+  <small *ngIf="control?.invalid && control?.touched && !ignoreValidationErrors" class="form-text text-danger">This field is required</small>
+</div>

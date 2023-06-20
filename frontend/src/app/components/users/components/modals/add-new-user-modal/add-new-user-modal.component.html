@@ -1,0 +1,66 @@
+<app-modal
+  titleLabel="Add new user"
+  (confirm)="save()"
+  [confirmButtonEnabled]="formGroup.valid"
+  [modified]="formGroup.dirty"
+  cancelText="Cancel"
+  confirmText="Add">
+  <form [formGroup]="formGroup" *ngIf="formGroup">
+    <div class="container d-flex flex-column">
+      <app-form-input
+        class="mb-4"
+        label="First name"
+        formControlName="firstName"
+      ></app-form-input>
+      <app-form-input
+        class="mb-4"
+        label="Last name"
+        formControlName="lastName"
+      ></app-form-input>
+      <app-form-input
+        class="mb-4"
+        label="Street name"
+        formControlName="streetName"
+      ></app-form-input>
+      <app-form-input
+        class="mb-4"
+        label="House number"
+        formControlName="houseNumber"
+      ></app-form-input>
+      <app-form-input
+        class="mb-4"
+        label="Apartment number"
+        [isRequired]="false"
+        formControlName="apartmentNumber"
+      ></app-form-input>
+      <app-form-input
+        class="mb-4"
+        type="number"
+        label="Postal code"
+        formControlName="postalCode"
+      ></app-form-input>
+      <app-form-input
+        class="mb-4"
+        label="Town"
+        formControlName="town"
+      ></app-form-input>
+      <app-form-input
+        class="mb-4"
+        type="number"
+        label="Phone number"
+        formControlName="phoneNumber"
+      ></app-form-input>
+      <app-form-datepicker
+        class="mb-4"
+        label="Date of birth"
+        formControlName="dateOfBirth"
+      ></app-form-datepicker>
+      <app-form-input
+        class="mb-4"
+        label="Age"
+        type="number"
+        formControlName="age"
+      ></app-form-input>
+    </div>
+  </form>
+</app-modal>

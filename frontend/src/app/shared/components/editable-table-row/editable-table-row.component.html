@@ -1,0 +1,79 @@
+<ng-container [formGroup]="user">
+  <td app-editable-table-cell
+      [value]="user.controls['firstName'].value"
+      formControlName="firstName"
+      (updateValue)="updateCellValue($event, 'firstName')"
+      [isEditRowMode]="isEditRowMode"
+      ></td>
+  <td app-editable-table-cell
+      [value]="user.controls['lastName'].value"
+      formControlName="lastName"
+      (updateValue)="updateCellValue($event, 'lastName')"
+      [isEditRowMode]="isEditRowMode"
+      ></td>
+  <td app-editable-table-cell
+      [value]="user.controls['streetName'].value"
+      formControlName="streetName"
+      (updateValue)="updateCellValue($event, 'streetName')"
+      [isEditRowMode]="isEditRowMode"
+      ></td>
+  <td app-editable-table-cell
+      [value]="user.controls['houseNumber'].value"
+      formControlName="houseNumber"
+      (updateValue)="updateCellValue($event, 'houseNumber')"
+      [isEditRowMode]="isEditRowMode"
+      ></td>
+  <td app-editable-table-cell
+      [value]="user.controls['apartmentNumber'].value"
+      [isRequired]="false"
+      (updateValue)="updateCellValue($event, 'apartmentNumber')"
+      formControlName="apartmentNumber"
+      [isEditRowMode]="isEditRowMode"
+      ></td>
+  <td app-editable-table-cell
+      [value]="user.controls['postalCode'].value"
+      formControlName="postalCode"
+      (updateValue)="updateCellValue($event, 'postalCode')"
+      type="number"
+      [isEditRowMode]="isEditRowMode"
+      ></td>
+  <td app-editable-table-cell
+      [value]="user.controls['town'].value"
+      formControlName="town"
+      (updateValue)="updateCellValue($event, 'town')"
+      [isEditRowMode]="isEditRowMode"
+      ></td>
+  <td app-editable-table-cell
+      [value]="user.controls['phoneNumber'].value"
+      formControlName="phoneNumber"
+      (updateValue)="updateCellValue($event, 'phoneNumber')"
+      type="number"
+      [isEditRowMode]="isEditRowMode"
+      ></td>
+  <td app-editable-table-cell
+      [value]="user.controls['dateOfBirth'].value"
+      cellType="date"
+      (updateValue)="updateCellValue($event, 'dateOfBirth')"
+      formControlName="dateOfBirth"
+      [isEditRowMode]="isEditRowMode"
+      ></td>
+  <td app-editable-table-cell
+      [value]="user.controls['age'].value"
+      [isEditRowMode]="isEditRowMode"
+      formControlName="age"
+      ></td>
+  <td class="action-block">
+    <div *ngIf="!isEditRowMode" class="d-flex justify-content-center" ngbDropdown>
+        <i class="mdi mdi-dots-vertical dropdown-toggler cursor-pointer" ngbDropdownToggle></i>
+      <div ngbDropdownMenu>
+        <button ngbDropdownItem type="button" (click)="enterEditMode()">Edit</button>
+        <button ngbDropdownItem type="button" (click)="removeUserHandler(user.controls['id'].value)">Remove</button>
+      </div>
+    </div>
+
+    <div *ngIf="isEditRowMode" class="d-flex justify-content-evenly">
+      <i class="mdi mdi-check text-success" [class.disabled]="user.invalid" (click)="applyChanges()"></i>
+      <i class="mdi mdi-cancel text-danger" (click)="cancelEdit()"></i>
+    </div>
+  </td>
+</ng-container>

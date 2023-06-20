@@ -1,0 +1,20 @@
+<div class='custom-modal'>
+  <div class='modal-header px-4'>
+    <p class='modal-title'>{{ titleLabel }}</p>
+    <span (click)="onClose()" class="btn btn-close btn-close-white close-icon"></span>
+  </div>
+  <div class='modal-body mb-3'>
+    <ng-content></ng-content>
+  </div>
+  <div *ngIf='confirmText || cancelText' class='modal-footer'>
+    <button (click)='onCancel()' *ngIf='cancelText' class='btn btn-outline-secondary'>
+      {{ cancelText }}
+    </button>
+    <button (click)='onConfirm()'
+            *ngIf='confirmText'
+            [disabled]='!confirmButtonEnabled'
+            class='btn btn-success'>
+      {{ confirmText }}
+    </button>
+  </div>
+</div>
