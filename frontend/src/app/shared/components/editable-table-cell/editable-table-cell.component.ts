@@ -56,6 +56,11 @@ export class EditableTableCellComponent extends BaseCustomControlComponent {
     })
   }
 
+  @HostListener('keydown.enter')
+  public enterKeydownHandler(): void {
+    this.applyChanges();
+  }
+
   constructor(ngControl: NgControl,
               private userService: UsersService,
               private parserFormatter: NgbDateParserFormatter) {
@@ -66,7 +71,7 @@ export class EditableTableCellComponent extends BaseCustomControlComponent {
     this.isEdit = val;
   }
 
-  public handleInputBlur(): void {
+  public applyChanges(): void {
     if (!this.isEditRowModeActivated) {
       this.setEdit(false);
 

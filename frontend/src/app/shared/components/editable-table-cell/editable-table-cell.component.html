@@ -18,7 +18,7 @@
     <app-form-input
       #input
       [type]="type"
-      (onBlur)="handleInputBlur()"
+      (onBlur)="applyChanges()"
       [ignoreValidationErrors]="true"
       [formControl]="control"
     ></app-form-input>
@@ -28,7 +28,7 @@
       #input
       [isInlineEdit]="!isEditRowModeActivated"
       [ignoreValidationErrors]="true"
-      (onBlur)="handleInputBlur()"
+      (onBlur)="applyChanges()"
       [formControl]="control"
     ></app-form-datepicker>
   </ng-template>
