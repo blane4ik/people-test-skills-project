@@ -27,7 +27,7 @@ export class AddNewUserModalComponent {
         this.toasterService.showSuccess('User successfully added');
         this.activeModal.close(ModalCloseReason.OK)
       },
-      error: () => this.toasterService.showSuccess('Something went wrong...')
+      error: this.toasterService.defaultErrorHandler
     })
   }
 

@@ -2,9 +2,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IUser } from '../interface/user.interface';
 
 export class UserUtils {
-  public static readonly USER_UPDATE_CANCEL_TEXT: string = 'Are you sure you want to proceed? All updated information will be erased!';
-  public static readonly REMOVE_USER__TEXT: string = 'Are you sure you want to remove this user?';
-
   public static getFormArrayControlsFromUsers(users: IUser[]): FormGroup[] {
     return users.map((user: IUser) => this.getUserFormGroup(user));
   }

@@ -24,4 +24,6 @@ export class ToasterService {
   public remove(toast: IToast): void {
     this.toasts = this.toasts.filter(t => t !== toast);
   }
+
+  public defaultErrorHandler = () => this.showDanger('Something went wrong...');
 }

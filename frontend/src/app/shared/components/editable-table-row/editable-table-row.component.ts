@@ -40,7 +40,7 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
   }
 
   public updateCellValue(value: string, controlName: string): void {
-    this.userService.updatedUsers.add(this.user);
+    this.addUserToMap();
     this.userGroupInitialValue[controlName] = value;
   }
 
@@ -52,6 +52,10 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
         this.cancelEdit();
       }
     })
+  }
+
+  private addUserToMap(): void {
+    this.userService.updatedUsers.set(this.user.controls['id'].value, this.user.getRawValue());
   }
 
   public setEditMode(val: boolean): void {
@@ -75,7 +79,7 @@ export class EditableTableRowComponent implements OnInit, OnDestroy {
     if (this.user.valid) {
       this.userGroupInitialValue = this.user.value;
       this.setEditMode(false);
-      this.userService.updatedUsers.add(this.user);
+      this.addUserToMap();
       this.userService.triggerUserModified(true);
     }
   }

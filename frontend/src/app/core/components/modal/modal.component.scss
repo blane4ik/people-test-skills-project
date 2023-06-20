@@ -6,6 +6,10 @@
   & .modal-header {
     background-color: $dark;
     border-bottom: 1px solid $dark;
+
+    .close-icon {
+      font-size: 1.2rem;
+    }
   }
 
   & .modal-footer {
@@ -19,7 +23,7 @@
   }
 
   & .modal-body {
-    max-height: 80vh;
+    max-height: 70vh;
     overflow: auto;
   }
 }

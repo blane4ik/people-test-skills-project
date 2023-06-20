@@ -13,7 +13,7 @@ export class UsersService {
   public cancelUserEdit$: Observable<void> = this.cancelUserEditSbj.asObservable();
   private isModifiedSbj: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isModified$: Observable<boolean> = this.isModifiedSbj.asObservable();
-  public updatedUsers: Set<FormGroup> = new Set<FormGroup>();
+  public updatedUsers: Map<string, IUser> = new Map<string, IUser>();
 
   private readonly baseUrl = environment.baseApiUrl;
   constructor(private httpClient: HttpClient) { }

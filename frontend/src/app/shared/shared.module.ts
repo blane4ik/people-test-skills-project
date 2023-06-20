@@ -8,6 +8,7 @@ import { EditableTableRowComponent } from './components/editable-table-row/edita
 import { FormDatepickerComponent } from './components/form-datepicker/form-datepicker.component';
 import { BaseInputComponent } from './components/base-input/base-input.component';
 import { BaseCustomControlComponent } from './components/base-custom-control/base-custom-control.component';
+import { EmptyDataComponent } from './components/empty-data/empty-data.component';
 
 
 @NgModule({
@@ -18,20 +19,23 @@ import { BaseCustomControlComponent } from './components/base-custom-control/bas
     FormDatepickerComponent,
     BaseInputComponent,
     BaseCustomControlComponent,
+    EmptyDataComponent,
   ],
-    exports: [
-        FormInputComponent,
-        EditableTableCellComponent,
-        EditableTableRowComponent,
-        FormDatepickerComponent
-    ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NgbTooltipModule,
-        NgbDropdownModule,
-        NgbDatepickerModule
-    ]
+  exports: [
+    FormInputComponent,
+    EditableTableCellComponent,
+    EditableTableRowComponent,
+    FormDatepickerComponent,
+    EmptyDataComponent
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbTooltipModule,
+    NgbDropdownModule,
+    NgbDatepickerModule
+  ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

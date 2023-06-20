@@ -4,7 +4,6 @@ import { from, Observable } from 'rxjs';
 import { ModalCloseReason } from '../components/modal/enum/modal-close-reason.enum';
 import { AddNewUserModalComponent } from '../../components/users/components/modals/add-new-user-modal/add-new-user-modal.component';
 import { ConfirmationModalComponent } from '../components/confirmation-modal/confirmation-modal.component';
-import { UserUtils } from '../../components/users/utils/user-utils';
 
 @Injectable({
   providedIn: 'root'
@@ -55,6 +54,6 @@ export class ModalService {
   }
 
   public openRemoveUserConfirmationModal(): Observable<ModalCloseReason> {
-    return this.openConfirmationModal('Remove User', UserUtils.REMOVE_USER__TEXT);
+    return this.openConfirmationModal('Remove User', 'Are you sure you want to remove this user?');
   }
 }

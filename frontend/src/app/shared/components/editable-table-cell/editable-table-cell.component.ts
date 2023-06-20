@@ -60,7 +60,6 @@ export class EditableTableCellComponent extends BaseCustomControlComponent {
               private userService: UsersService,
               private parserFormatter: NgbDateParserFormatter) {
     super(ngControl);
-    this.ngControl.valueAccessor = this;
   }
 
   public setEdit(val: boolean): void {

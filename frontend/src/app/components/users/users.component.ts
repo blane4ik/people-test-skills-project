@@ -36,14 +36,13 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
-
   private getUsers(): void {
     this.usersService.getUsers().subscribe({
       next: (users: IUser[]) => {
         this.initialUsersValue = users;
         this.updateFormArrayControls(users);
       },
-      error: () => this.toasterService.showDanger('Something went wrong...')
+      error: this.toasterService.defaultErrorHandler
     })
   }
 
@@ -51,18 +50,22 @@ export class UsersComponent implements OnInit {
     this.usersFormArray.controls = UserUtils.getFormArrayControlsFromUsers(users);
   }
 
-  public removeUser(id: string) {
+  public removeUser(id: string): void {
     this.usersService.removeUser(id).subscribe({
       next: () => {
         this.toasterService.showSuccess('User successfully removed');
+        this.usersService.updatedUsers.delete(id);
+        this.usersService.triggerUserModified(!!Array.from(this.usersService.updatedUsers.values()).length)
         this.getUsers();
       },
-      error: () => this.toasterService.showSuccess('Something went wrong...')
+      error: this.toasterService.defaultErrorHandler
     })
   }
 
   public cancelChanges(): void {
-    this.modalService.openUnsavedDataModal(UserUtils.USER_UPDATE_CANCEL_TEXT).subscribe((reason: ModalCloseReason) => {
+    const modalText: string = 'Are you sure you want to proceed? All updated information will be erased!';
+
+    this.modalService.openUnsavedDataModal(modalText).subscribe((reason: ModalCloseReason) => {
       if (reason === ModalCloseReason.OK) {
         this.updateFormArrayControls(this.initialUsersValue);
         this.usersService.triggerUserModified(false);
@@ -80,7 +83,7 @@ export class UsersComponent implements OnInit {
 
   public save(): void {
     this.usersService.triggerCancelUserEdit();
-    const updatedUsers: IUser[] = Array.from(this.usersService.updatedUsers.values()).map((group: FormGroup) => group.getRawValue());
+    const updatedUsers: IUser[] = Array.from(this.usersService.updatedUsers.values());
 
     this.usersService.saveUpdatedUsers(updatedUsers).subscribe({
       next: () => {
@@ -89,7 +92,7 @@ export class UsersComponent implements OnInit {
         this.usersService.triggerUserModified(false);
         this.getUsers();
       },
-      error: () => this.toasterService.showSuccess('Something went wrong...')
+      error: this.toasterService.defaultErrorHandler
     })
   }
 }
