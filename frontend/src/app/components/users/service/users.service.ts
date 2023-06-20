@@ -3,7 +3,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { IUser } from '../interface/user.interface';
-import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
